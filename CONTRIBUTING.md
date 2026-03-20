@@ -41,11 +41,12 @@ Just like this: `feat/user-authentication`
 
 | Item | Convention | Example |
 |------|------------|---------|
-| Variables | `UPPER_SNAKE_CASE` | `let USER_PROFILE = ...` |
-| Constants | `UPPER_SNAKE_CASE` | `const API_VERSION = 'v1'` |
-| Functions | `camelCase` (verb prefix) | `function getUserData() { ... }` |
+| Variables | `lowerCamelCase` | `std::string userProfile = ...;` |
+| Constants | `UPPER_SNAKE_CASE` | `string API_VERSION = 'v1' const;` |
+| Functions | `camelCase` (verb prefix) | `bool isUserConnected() { ... }` |
 | Classes | `PascalCase` | `class ApiService { ... }` |
 | Structs / Enums | `PascalCase` | `enum HttpMethod { ... }` |
+| Parameters | `_UPPER_SNAKE_CASE` | `string getUserName(int _USERID)` |
 
 ---
 
