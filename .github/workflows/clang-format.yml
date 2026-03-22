@@ -1,0 +1,39 @@
+name: Linter C++
+
+on:
+  pull_request:
+    branches: [ "main", "dev" ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  format:
+    name: Code formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Appliquer Clang-Format
+        uses: DoozyX/clang-format-lint-action@v0.20
+        with:
+          source: './src'
+          extensions: 'h,cpp,c'
+          clangFormatVersion: 20
+          inplace: True
+
+      - name: Commit automatique des corrections
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Clang Robot
+          author_email: robot@fabulous-project.com
+          message: 'style: auto-format C++ code with clang-format'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

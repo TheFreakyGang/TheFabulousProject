@@ -1,0 +1,53 @@
+name: Did you see a bug?
+description: Please tell us where and what.
+title: "[BUG] : "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting this issue, be sure that there is not a similar one existing. Thank you!
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Description.
+      description: Explain clearly the bug.
+      placeholder: App crashes if going to X page.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to encounter this bug.
+      description: How?
+      value: |
+        1. Launch the app
+        2. Go in '...'
+        3. Error shows up
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      description: On which OS is the bug showing on.
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and screenshots
+      description: Paste here the error log or any screenshots of it.
+      render: shell
+    validations:
+      required: false
+

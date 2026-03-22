@@ -1,0 +1,22 @@
+name: Any suggestions?
+description: Tell us about what you want to see in our app.
+title: "[FEAT] : "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's on your mind.
+      description: Tell us why.
+      placeholder: Well, I want to see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What you want to see
+      description: Tell us what.
+    validations:
+      required: true
+

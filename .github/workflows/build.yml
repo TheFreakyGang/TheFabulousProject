@@ -1,0 +1,49 @@
+name: Build Application
+
+on:
+  pull_request:
+    branches: [ "main", "dev" ]
+  push:
+    branches: [ "main", "dev" ]
+
+jobs:
+  build:
+    name: Building on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            qt_host: linux
+            qt_arch: linux_gcc_64
+          - os: windows-latest
+            qt_host: windows
+            qt_arch: win64_msvc2022_64
+          - os: macos-latest
+            qt_host: mac
+            qt_arch: clang_64
+
+    steps:
+      - name: Fetching
+        uses: actions/checkout@v4
+
+      - name: Installing
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.8.0'
+          host: ${{ matrix.qt_host }}
+          target: 'desktop'
+          arch: ${{ matrix.qt_arch }}
+          cache: 'true'
+
+      - name: CMake configuration
+        run: >
+          cmake -B build
+          -DCMAKE_BUILD_TYPE=Release
+          -S .
+
+      - name: Compiling
+        run: cmake --build build --config Release --parallel 4
+
