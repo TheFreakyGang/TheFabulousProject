@@ -1,0 +1,110 @@
+# C++ and System build files
+*~
+*.autosave
+*.a
+*.core
+*.moc
+*.o
+*.obj
+*.orig
+*.rej
+*.so
+*.so.*
+*_pch.h.cpp
+*_resource.rc
+*.qm
+.#*
+*.*#
+core
+!core/
+tags
+*.debug
+Makefile*
+*.prl
+*.app
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.res
+*.rc
+
+# CMake and Build directories
+build/
+build-*/
+out/
+cmake-build-*/
+.cmake/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Directories with generated files
+.moc/
+.obj/
+.pch/
+.rcc/
+.uic/
+
+# Binaries
+*.dll
+*.exe
+
+# IDEs and Editors
+# Qt Creator
+*.pro.user*
+*.qbs.user*
+CMakeLists.txt.user*
+/.qmake.cache
+/.qmake.stash
+
+# Visual Studio
+*.ib_pdb_index
+*.idb
+*.ilk
+*.pdb
+*.sln
+*.suo
+*.vcproj
+*.vcproj.*.*.user
+*.ncb
+*.sdf
+*.opensdf
+*.vcxproj
+*.vcxproj.*
+
+# JetBrains (CLion, Rider, etc.)
+.idea/
+
+# VS Code
+.vscode/
+
+# Vim & Emacs
+*.swp
+*.swo
+.*.swp
+*.flc
+
+# OS specific files
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.directory
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Other Compilers / Languages
+# MinGW generated files
+*.Debug
+*.Release
+
+# Python byte code
+*.pyc
