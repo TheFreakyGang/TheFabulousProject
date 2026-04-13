@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     app.setApplicationName("The Fabulous Project");
     app.setApplicationVersion("0.1");
-    app.setOrganizationName("The Fabulous Project");
+    app.setOrganizationName("TheFreakyGang");
 
     if (QSystemTrayIcon::isSystemTrayAvailable()) {
         QSystemTrayIcon trayIcon;
