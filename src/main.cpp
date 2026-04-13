@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
                                            app.style()->standardIcon(QStyle::SP_ComputerIcon)));
         trayIcon->setToolTip("The Fabulous Project");
 
-        auto *trayMenu = new QMenu(trayIcon);
+        auto *trayMenu = new QMenu;
+        QObject::connect(&app, &QCoreApplication::aboutToQuit, trayMenu, &QObject::deleteLater);
         QAction *quitAction = trayMenu->addAction(QObject::tr("Quit"));
         QObject::connect(quitAction, &QAction::triggered, &app, &QCoreApplication::quit);
         trayIcon->setContextMenu(trayMenu);
