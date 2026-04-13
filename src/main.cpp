@@ -1,10 +1,10 @@
-#include <QApplication>
 #include <QAction>
+#include <QApplication>
 #include <QIcon>
 #include <QMenu>
-#include <QSystemTrayIcon>
-#include <QStyle>
 #include <QQmlApplicationEngine>
+#include <QStyle>
+#include <QSystemTrayIcon>
 
 int main(int argc, char *argv[])
 {
@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
 
     if (QSystemTrayIcon::isSystemTrayAvailable()) {
         QSystemTrayIcon trayIcon;
-        trayIcon.setIcon(QIcon::fromTheme("applications-graphics", app.style()->standardIcon(QStyle::SP_ComputerIcon)));
+        trayIcon.setIcon(QIcon::fromTheme("applications-graphics",
+                                          app.style()->standardIcon(QStyle::SP_ComputerIcon)));
         trayIcon.setToolTip("The Fabulous Project");
 
         QMenu trayMenu;
