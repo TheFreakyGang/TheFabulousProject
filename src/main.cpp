@@ -14,17 +14,16 @@ int main(int argc, char *argv[])
     app.setOrganizationName("TheFreakyGang");
 
     if (QSystemTrayIcon::isSystemTrayAvailable()) {
-        QSystemTrayIcon trayIcon;
-        trayIcon.setIcon(QIcon::fromTheme("applications-graphics",
-                                          app.style()->standardIcon(QStyle::SP_ComputerIcon)));
-        trayIcon.setToolTip("The Fabulous Project");
+        auto *trayIcon = new QSystemTrayIcon(&app);
+        trayIcon->setIcon(QIcon::fromTheme("applications-graphics",
+                                           app.style()->standardIcon(QStyle::SP_ComputerIcon)));
+        trayIcon->setToolTip("The Fabulous Project");
 
-        QMenu trayMenu;
-        QAction quitAction("Quitter", &app);
-        QObject::connect(&quitAction, &QAction::triggered, &app, &QCoreApplication::quit);
-        trayMenu.addAction(&quitAction);
-        trayIcon.setContextMenu(&trayMenu);
-        trayIcon.show();
+        auto *trayMenu = new QMenu(trayIcon);
+        QAction *quitAction = trayMenu->addAction(QObject::tr("Quit"));
+        QObject::connect(quitAction, &QAction::triggered, &app, &QCoreApplication::quit);
+        trayIcon->setContextMenu(trayMenu);
+        trayIcon->show();
     }
 
     QQmlApplicationEngine engine;
