@@ -32,7 +32,7 @@ set_target_properties(appFabulous PROPERTIES
 )
 
 target_link_libraries(appFabulous
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick Qt6::Widgets
 )
 
 include(GNUInstallDirs)
